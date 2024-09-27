@@ -8,13 +8,14 @@ if (!process.env.MONGODB_URI) {
 }
 
 const uri = process.env.MONGODB_URI
-let clientPromise: Promise<MongoClient> | undefined
+let clientPromise: Promise<MongoClient> | undefined 
 
 try {
     const client = new MongoClient(uri, {
         serverApi: {
             version: ServerApiVersion.v1,
-            strict: true, deprecationErrors: true, 
+            strict: true, 
+            deprecationErrors: true, 
         },
     })
     clientPromise = client.connect().then(() => {
